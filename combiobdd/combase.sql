@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `IDCATEGORIE` varchar(10) NOT NULL,
   `LIBCATEGORIE` varchar(50) NOT NULL,
   PRIMARY KEY (`IDCATEGORIE`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `VILLE` varchar(50) NOT NULL,
   `CLI_PARRAIN` int DEFAULT NULL,
   PRIMARY KEY (`IDCLIENT`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `commande` (
   KEY `FK_EFFECTUER` (`IDVPAIEMENT`),
   KEY `FK_PASSER` (`IDCLIENT`),
   KEY `FK_PAYER` (`IDPAIEMENT`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `conditionner` (
   `DATECONDITIONNER` timestamp NOT NULL,
   PRIMARY KEY (`IDPRODUIT`,`IDEMBALLAGE`),
   KEY `FK_CONDITIONNER2` (`IDEMBALLAGE`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `contenir` (
   `PRIXVENTE` int NOT NULL,
   PRIMARY KEY (`IDCOMMANDE`,`IDPRODUIT`),
   KEY `FK_CONTENIR2` (`IDPRODUIT`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `emballage` (
   `IDEMBALLAGE` varchar(10) NOT NULL,
   `LIBEMBALLAGE` varchar(50) NOT NULL,
   PRIMARY KEY (`IDEMBALLAGE`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `fournisseur` (
   `PRENOMFOURNISSEUR` varchar(50) NOT NULL,
   PRIMARY KEY (`IDFOURNISSEUR`),
   KEY `FK_ABRITER` (`IDPAYS`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `DESCRIPTION` text NOT NULL,
   `CHEMIN` varchar(255) NOT NULL,
   PRIMARY KEY (`IDIMAGE`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `modepaiement` (
   `IDPAIEMENT` varchar(10) NOT NULL,
   `LIBMPAIEMENT` varchar(50) NOT NULL,
   PRIMARY KEY (`IDPAIEMENT`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `pays` (
   `IDPAYS` varchar(10) NOT NULL,
   `LIBPAYS` varchar(25) NOT NULL,
   PRIMARY KEY (`IDPAYS`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   PRIMARY KEY (`IDPRODUIT`),
   KEY `FK_APPARTENIR` (`IDCATEGORIE`),
   KEY `FK_FOURNIR` (`IDFOURNISSEUR`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -202,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `NOMUSER` varchar(50) NOT NULL,
   `MOTDEPASSE` text NOT NULL,
   PRIMARY KEY (`IDCONNNEXION`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `voiepaiement` (
   `IDVPAIEMENT` varchar(10) NOT NULL,
   `LIBVPAIEMENT` varchar(20) NOT NULL,
   PRIMARY KEY (`IDVPAIEMENT`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Contraintes pour les tables déchargées
