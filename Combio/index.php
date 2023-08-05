@@ -1,3 +1,8 @@
+<?php
+include 'connexion.php';
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="Français">
 
@@ -263,20 +268,36 @@
                 </div>
             </div>
             <div class="row featured__filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges huiles">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.png">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="./shop-details.html">Huile Coco Sri Lanka</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables tubes">
+                    <?php
+    
+                        // Requête SQL pour récupérer les données de la table "modele"
+                        $sql = "SELECT prixvente, image, libelle FROM produits";
+                        $result = $conn->query($sql);
+
+                        // Vérifier s'il y a des résultats
+                        if ($result->num_rows > 0) {
+                            // Parcourir les résultats et afficher les données pour chaque modèle
+                            while ($row = $result->fetch_assoc()) {
+                            echo '<div class="featured__item">';
+                            echo '    <div class="featured_item_pic set-bg" data-setbg="' . $row["image"] .'">';
+                            echo '        <ul class="featured_itempic_hover"></ul>';
+                            echo '              <li><a href="#"><i class="fa fa-heart"></i></a></li>';
+                            echo '              <li><a href="#"><i class="fa fa-retweet"></i></a></li>';
+                            echo '              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>';
+                            echo '        </ul>';
+                            echo '    </div>';
+                            echo '    <div class="featured_item_text">';
+                            echo '        <h6><a href="./shop-details.html">'. $row["libelle"] . ' FCFA  </a></h6>';
+                            echo '        <h5>'. $row["prixvente"] .'</h5>';
+                            echo '    </div>';
+                            echo '</div>';
+                        }
+                        } else {
+                            echo "Aucun produit trouvé.";
+                        }
+                    ?>
+                </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables tubes">
                     <div class="featured__item">
