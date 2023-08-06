@@ -1,0 +1,40 @@
+.panier{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.panier section{
+    width: 70%;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+th{
+    padding: 10px 0;
+    font-weight: 400;
+}
+
+td{
+    border-top: 0.5 px solid #999;
+    text-align: center;
+    color: #fff;
+}
+tr{
+    border-bottom: 0.5px solid #999;
+}
+.total th{
+    border: 0;
+    float: left;
+    font-weight: 500;
+    color: #fff;
+    padding: 10px;
+}
