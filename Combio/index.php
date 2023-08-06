@@ -1,6 +1,6 @@
 <?php
 include 'connexion.php';
-session_start();
+include 'panier.php';
 
 ?>
 <!DOCTYPE html>
@@ -29,6 +29,62 @@ session_start();
 </head>
 
 <body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Humberger Begin -->
+    <!-- <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            </ul>
+            <div class="header__cart__price">item: <span>$150.00</span></div>
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__language">
+                <img src="img/language.png" alt="">
+                <div>Français</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+            <div class="header__top__right__auth">
+                <a href="#"><i class="fa fa-user"></i> Login</a>
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">Home</a></li>
+                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="#">Pages</a>
+                    <ul class="header__menu__dropdown">
+                        <li><a href="./shop-details.html">Shop Details</a></li>
+                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                        <li><a href="./checkout.html">Check Out</a></li>
+                        <li><a href="./blog-details.html">Blog Details</a></li>
+                    </ul>
+                </li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        </div>
+    </div> -->
+    <!-- Humberger End -->
 
     <!-- Header Section Begin -->
     <header class="header">
@@ -79,9 +135,8 @@ session_start();
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <!-- Afficheer le nombre de produit dans le panier -->
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="panier.php"><i class="fa fa-shopping-bag"></i> <span><?=array_sum($_SESSION['panier'])?></span></a></li>
+                            <li><a href="./shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -211,40 +266,46 @@ session_start();
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="row featured__filter">
-                    <?php
-    
-                        // Requête SQL pour récupérer les données de la table "modele"
-                        $sql = "SELECT *  FROM produits";
-                        $result = $conn->query($sql);
+             </div>
+             <div class="row featured__filter">
+             <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables tubes">
+    <?php
+        // Requête SQL pour récupérer les données de la table "modele"
+        $sql = "SELECT prixvente, image, libelle FROM produits";
+        $result = $conn->query($sql);
 
-                        // Vérifier s'il y a des résultats
-                        if ($result->num_rows > 0) {
-                            // Parcourir les résultats et afficher les données pour chaque modèle
-                            while ($row = $result->fetch_assoc()) {
-                            echo'<div class="col-lg-3 col-md-4 col-sm-6 mix tubes">';
-                            echo '<div class="featured__item">';
-                            echo '    <div class="featured__item__pic set-bg">';
-                            echo '      <img src="'.$row["image"].'" alt="" >';
-                            echo '        <ul class="featured__item__pic__hover">';
-                            echo '              <li><a href="#"><i class="fa fa-heart"></i></a></li>';
-                            echo '              <li><a href="#"><i class="fa fa-retweet"></i></a></li>';
-                            echo '              <li><a href="ajouter_panier.php?refproduits='.$row["refproduits"].'"><i class="fa fa-shopping-cart"></i></a></li>';
-                            echo '        </ul>';
-                            echo '    </div>';
-                            echo '    <div class="featured__item__text">';
-                            echo '        <h6><a href="./shop-details.html">'. $row["libelle"] . ' FCFA  </a></h6>';
-                            echo '        <h5>'. $row["prixvente"] .'</h5>';
-                            echo '    </div>';
-                            echo '</div>';
-                            echo '</div>';
-                        }
-                        } else {
-                            echo "Aucun produit trouvé.";
-                        }
-                    ?>
+        // Vérifier s'il y a des résultats
+        if ($result->num_rows > 0) {
+            // Parcourir les résultats et afficher les données pour chaque modèle
+            while ($row = $result->fetch_assoc()) {
+                echo '<div class="featured__item">';
+                echo '    <div class="featured_item_pic set-bg" data-setbg="' . $row["image"] .'">';
+                echo '        <ul class="featured_itempic_hover"></ul>';
+                echo '              <li><a href="#"><i class="fa fa-heart"></i></a></li>';
+                echo '              <li><a href="#"><i class="fa fa-retweet"></i></a></li>';
+                echo '              <li><form method="post" action="shoping-cart.php">';
+                echo '                  <input type="hidden" name="image" value="' . $row["image"] . '">';
+                echo '                  <input type="hidden" name="name" value="' . $row["libelle"] . '">';
+                echo '                  <input type="hidden" name="price" value="' . $row["prixvente"] . '">';
+                echo '                  <button type="submit" name="add-to-cart"><i class="fa fa-shopping-cart"></i></button>';
+                echo '              </form></li>';
+                echo '        </ul>';
+                echo '    </div>';
+                echo '    <div class="featured_item_text">';
+                echo '        <h6><a href="./shop-details.html">'. $row["libelle"] . ' FCFA  </a></h6>';
+                echo '        <h5>'. $row["prixvente"] .'</h5>';
+                echo '    </div>';
+                echo '</div>';
+            }
+        } else {
+            echo "Aucun produit trouvé.";
+        }
+    ?>
+</div>
+
+
                 </div>
+            </div>
         </div>
     </section>
     <!-- Featured Section End -->
@@ -587,6 +648,9 @@ session_start();
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+
+
 
 
 
