@@ -1,192 +1,104 @@
-(function($) {
-  'use strict';
-  $(function() {
 
-    //basic config
-    if ($("#js-grid").length) {
-      $("#js-grid").jsGrid({
-        height: "500px",
-        width: "100%",
-        filtering: true,
-        editing: true,
-        inserting: true,
-        sorting: true,
-        paging: true,
-        autoload: true,
-        pageSize: 15,
-        pageButtonCount: 5,
-        deleteConfirm: "Do you really want to delete the client?",
-        data: db.clients,
-        fields: [{
-            name: "Name",
-            type: "text",
-            width: 150
-          },
-          {
-            name: "Age",
-            type: "number",
-            width: 50
-          },
-          {
-            name: "Address",
-            type: "text",
-            width: 200
-          },
-          {
-            name: "Country",
-            type: "select",
-            items: db.countries,
-            valueField: "Id",
-            textField: "Name"
-          },
-          {
-            name: "Married",
-            title: "Is Married",
-            itemTemplate: function(value, item) {
-              return $("<div>")
-                .addClass("form-check mt-0")
-                .append(
-                  $("<label>").addClass("form-check-label")
-                  .append(
-                    $("<input>").attr("type", "checkbox")
-                    .addClass("form-check-input")
-                    .attr("checked", value || item.Checked)
-                    .on("change", function() {
-                      item.Checked = $(this).is(":checked");
-                    })
-                  )
-                  .append('<i class="input-helper"></i>')
-                );
+    $(function() {
+        $("#js-grid").jsGrid({
+            height: "500px",
+            width: "100%",
+            filtering: true,
+            editing: true,
+            inserting: true,
+            sorting: true,
+            paging: true,
+            autoload: true,
+            pageSize: 15,
+            pageButtonCount: 5,
+            deleteConfirm: "Do you really want to delete the client?",
+            controller: {
+                // Le contrôleur de la grille
+                loadData: function() {
+                    // Récupérer les données de la base de données via AJAX
+                    return $.ajax({
+                        type: "POST",
+                        url: "get_data.php", // Assurez-vous que l'URL pointe vers le bon emplacement de "get_data.php"
+                        dataType: "json",
+                    });
+                },
+                insertItem: function(item) {
+                    // Insérer un nouvel élément dans la base de données via AJAX
+                    return $.ajax({
+                        type: "POST",
+                        url: "insert_data.php", // Remplacez "insert_data.php" par le fichier pour insérer des données si nécessaire
+                        data: item,
+                        dataType: "json",
+                    });
+                },
+                updateItem: function(item) {
+                    // Mettre à jour un élément dans la base de données via AJAX
+                    return $.ajax({
+                        type: "POST",
+                        url: "update_data.php", // Remplacez "update_data.php" par le fichier pour mettre à jour des données si nécessaire
+                        data: item,
+                        dataType: "json",
+                    });
+                },
+                deleteItem: function(item) {
+                    // Supprimer un élément de la base de données via AJAX
+                    return $.ajax({
+                        type: "POST",
+                        url: "delete_data.php", // Remplacez "delete_data.php" par le fichier pour supprimer des données si nécessaire
+                        data: item,
+                        dataType: "json",
+                    });
+                },
+                
+            },
+            fields: [{
+                name: "refproduits",
+                type: "text",
+                width: 150,
+                filtering:true,
+                inserting:false
+            },
+            {
+                name: "libelle",
+                type: "text",
+                width: 150
+            },
+            {
+                name: "prixvente",
+                type: "number",
+                width: 200
+            },
+            {
+                name: "codecateg",
+                type: "number",
+                width: 100
+            },
+            {
+                name: "IDEMBALLAGE",
+                type: "text",
+                width: 100
+            },
+            {
+                name: "image",
+                type: "text",
+                width: 100,
+                itemTemplate: function(value, item) {
+                        return '<img src="'+ item.image +'"min-height="500px">';    
+                 }
+            },
+            {
+                name: "poids",
+                type: "text",
+                width: 100
+            },
+            {
+                name: "description",
+                type: "text",
+                width: 200
+            },
+            {
+                type: "control"
             }
-          },
-          {
-            type: "control"
-          }
         ]
-      });
-    }
-
-
-    //Static
-    if ($("#js-grid-static").length) {
-      $("#js-grid-static").jsGrid({
-        height: "500px",
-        width: "100%",
-
-        sorting: true,
-        paging: true,
-
-        data: db.clients,
-
-        fields: [{
-            name: "Name",
-            type: "text",
-            width: 150
-          },
-          {
-            name: "Age",
-            type: "number",
-            width: 50
-          },
-          {
-            name: "Address",
-            type: "text",
-            width: 200
-          },
-          {
-            name: "Country",
-            type: "select",
-            items: db.countries,
-            valueField: "Id",
-            textField: "Name"
-          },
-          {
-            name: "Married",
-            title: "Is Married",
-            itemTemplate: function(value, item) {
-              return $("<div>")
-                .addClass("form-check mt-0")
-                .append(
-                  $("<label>").addClass("form-check-label")
-                  .append(
-                    $("<input>").attr("type", "checkbox")
-                    .addClass("form-check-input")
-                    .attr("checked", value || item.Checked)
-                    .on("change", function() {
-                      item.Checked = $(this).is(":checked");
-                    })
-                  )
-                  .append('<i class="input-helper"></i>')
-                );
-            }
-          }
-        ]
-      });
-    }
-
-    //sortable
-    if ($("#js-grid-sortable").length) {
-      $("#js-grid-sortable").jsGrid({
-        height: "500px",
-        width: "100%",
-
-        autoload: true,
-        selecting: false,
-
-        controller: db,
-
-        fields: [{
-            name: "Name",
-            type: "text",
-            width: 150
-          },
-          {
-            name: "Age",
-            type: "number",
-            width: 50
-          },
-          {
-            name: "Address",
-            type: "text",
-            width: 200
-          },
-          {
-            name: "Country",
-            type: "select",
-            items: db.countries,
-            valueField: "Id",
-            textField: "Name"
-          },
-          {
-            name: "Married",
-            title: "Is Married",
-            itemTemplate: function(value, item) {
-              return $("<div>")
-                .addClass("form-check mt-0")
-                .append(
-                  $("<label>").addClass("form-check-label")
-                  .append(
-                    $("<input>").attr("type", "checkbox")
-                    .addClass("form-check-input")
-                    .attr("checked", value || item.Checked)
-                    .on("change", function() {
-                      item.Checked = $(this).is(":checked");
-                    })
-                  )
-                  .append('<i class="input-helper"></i>')
-                );
-            }
-          }
-        ]
-      });
-    }
-
-    if ($("#sort").length) {
-      $("#sort").on("click", function() {
-        var field = $("#sortingField").val();
-        $("#js-grid-sortable").jsGrid("sort", field);
-      });
-    }
-
-  });
-})(jQuery);
+    });
+});
