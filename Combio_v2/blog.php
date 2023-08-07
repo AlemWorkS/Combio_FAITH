@@ -56,7 +56,7 @@ include 'ajouter_panier.php';
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> Connexion</a>
+                                <a href="./log/log.php"><i class="fa fa-user"></i> Connexion</a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ include 'ajouter_panier.php';
                     <nav class="header__menu">
                         <ul>
                             <li><a href="./index.php">Accueil</a></li>
-                            <li><a href="./shop-grid.php">Produits</a></li>
+                            <li><a href="./index.php#Ventes">Produits</a></li>
                             <li class="active"><a href="./blog.php">Blog</a></li>
                             <li><a href="./contact.php">Contact</a></li>
                         </ul>

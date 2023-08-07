@@ -56,7 +56,7 @@ include 'ajouter_panier.php';
                                 </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="./log/log.html"><i class="fa fa-user"></i> Login</a>
+                                <a href="./log/log.php"><i class="fa fa-user"></i> Login</a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ include 'ajouter_panier.php';
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./index.php">Accueil</a></li>
-                            <li><a href="./shop-grid.php">Produits</a></li>
+                            <li><a href="./index.php#Ventes">Produits</a></li>
                             <li><a href="./blog.php">Blog</a></li>
                             <li><a href="./contact.php">Contact</a></li>
                         </ul>
@@ -235,8 +235,8 @@ include 'ajouter_panier.php';
                             echo '        </ul>';
                             echo '    </div>';
                             echo '    <div class="featured__item__text">';
-                            echo '        <h6><a href="./shop-details.php">'. $row["libelle"] . ' FCFA  </a></h6>';
-                            echo '        <h5>'. $row["prixvente"] .'</h5>';
+                            echo '        <h6><a href="./shop-details.php">'. $row["libelle"] . '</a></h6>';
+                            echo '        <h5>'. $row["prixvente"] .' FCFA  </h5>';
                             echo '    </div>';
                             echo '</div>';
                             echo '</div>';
