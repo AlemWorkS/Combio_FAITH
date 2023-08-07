@@ -45,17 +45,10 @@
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-                                <div>Français</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
+                           
                             <div class="header__top__right__auth">
-                                <a href="./log/log.php"><i class="fa fa-user"></i> Login</a>
+                                <a href="./log/log.php"><i class="fa fa-user"></i> Connexion</a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +59,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="./index.php"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -115,10 +108,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Shopping Cart</h2>
+                    <h2>Panier d'Achat</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.php">Home</a>
-                            <span>Shopping Cart</span>
+                            <a href="./index.php">Accueil</a>
+                            <span>Panier d'Achat</span>
                         </div>
                     </div>
                 </div>
@@ -191,38 +184,29 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
-                        <a href="./index.php" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                        <a href="./index.php" class="primary-btn cart-btn">CONTINUER LES ACHATS</a>
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
-
+                        <h5>Total du Panier</h5>
                         <ul>
-                            <?php 
-                                // Calculer le total à payer
-                                $totalAPayer = 0;
-                                foreach($_SESSION['panier'] as $id => $quantite) {
-                                $result = mysqli_query($conn, "SELECT * FROM produits WHERE refproduits = $id");
-                                $produit = mysqli_fetch_assoc($result);
-                                $totalAPayer += $produit['prixvente'] * $quantite;
-                            }
-                            ?>
-                            <li>Montant total à payer <span><?=$totalAPayer?> FCFA</span></li>
-                         </ul>
+                            <li>Sous-Total <span>50000 FCFA</span></li>
+                            <li>Total <span>50000 FCFA</span></li>
+                        </ul>
                         <a href="./checkout.php" class="primary-btn">PAYER</a>
                     </div>
-
-
                 </div>
             </div>
         </div>
     </section>
+    <!-- Footer Section Begin -->
     <footer class="footer spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="./index.php"><img src="img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: Cocody au 428,rue des jardins deux plateaux vallon Abidjan</li>
@@ -233,24 +217,15 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Liens utiles</h6>                        <ul>
-                            <li><a href="#">A propos de nous</a></li>
-                            <li><a href="#">A propos de notre boutique</a></li>
-                            <li><a href="#">Notre localisation</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Qui sommmes-nous ?</a></li>
-                            <li><a href="#">Nos services</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
+                        
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                         <h6>Inscrivez-vous à notre bulletin d'informations dès maintenant !</h6>
                         <p>Recevez des mises à jour par email sur notre boutique et nos offres spéciales.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Entrez votre email">
+                        <form action="abonnement.php" method="post">
+                            <input type="text" id="email" name="email" placeholder="Entrez votre email">
                             <button type="submit" class="site-btn">S'abonner</button>
                         </form>
                         <div class="footer__widget__social">
@@ -259,7 +234,7 @@
                             <a href="#"><i class="fa fa-twitter"></i></a>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -271,14 +246,19 @@
             </div>
         </div>
     </footer>
-     <!-- Js Plugins -->
-     <script src="js/jquery-3.3.1.min.js"></script>
-     <script src="js/bootstrap.min.js"></script>
-     <script src="js/jquery.nice-select.min.js"></script>
-     <script src="js/jquery-ui.min.js"></script>
-     <script src="js/jquery.slicknav.js"></script>
-     <script src="js/mixitup.min.js"></script>
-     <script src="js/owl.carousel.min.js"></script>
-     <script src="js/main.js"></script>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+
 </body>
+
 </html>

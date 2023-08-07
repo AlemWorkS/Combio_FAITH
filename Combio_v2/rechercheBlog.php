@@ -26,7 +26,7 @@
 <body>
 
     <?php
-        $url = './blog.php';
+        $url = './blog.html';
         $page_content = file_get_contents($url);
         $mot = $_POST["motRecherche"]; //Le mot à rechercher
 
