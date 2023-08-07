@@ -4,7 +4,7 @@ include 'ajouter_panier.php';
 
 ?>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -36,7 +36,7 @@ include 'ajouter_panier.php';
 
     <!-- Header Section Begin -->
     <header class="header">
-        <div class="header__top">
+    <div class="header__top">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
@@ -47,17 +47,9 @@ include 'ajouter_panier.php';
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                            </div>
-                            <div class="header__top__right__language">
-                                <div>Français</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">English</a></li>
-                                </ul>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="./log/log.php"><i class="fa fa-user"></i> Login</a>
+                                <a href="./log/log.php"><i class="fa fa-user"></i> Connexion</a>
                             </div>
                         </div>
                     </div>
@@ -102,19 +94,7 @@ include 'ajouter_panier.php';
             <div class="row">
                 <div class="col-lg-3">
                     <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>Catégories</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Alimentation</a></li>
-                            <li><a href="#">Beauté</a></li>
-                            <li><a href="#">Energies</a></li>
-                            <li><a href="#">Huiles naturelles</a></li>
-                            <li><a href="#">Tisanes</a></li>
-                            <li><a href="#">Santé</a></li>
-                            <li><a href="#">Régime minceur</a></li>
-                        </ul>
+                       
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -144,7 +124,7 @@ include 'ajouter_panier.php';
                     <div class="breadcrumb__text">
                         <h2>Checkout</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.php">Home</a>
+                            <a href="./index.php">Accueil</a>
                             <span>Checkout</span>
                         </div>
                     </div>
@@ -161,49 +141,49 @@ include 'ajouter_panier.php';
               
             </div>
             <div class="checkout__form">
-                <h4>Billing Details</h4>
+            <h4>Facture</h4>
                 <form action="#">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
+                                        <p>Nom<span>*</span></p>
                                         <input type="text">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
+                                        <p>Prénoms<span>*</span></p>
                                         <input type="text">
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Country<span>*</span></p>
+                                <p>Pays<span>*</span></p>
                                 <input type="text">
                             </div>
                             <div class="checkout__input">
-                                <p>Address<span>*</span></p>
+                                <p>Adresse<span>*</span></p>
                                 <input type="text" placeholder="Street Address" class="checkout__input__add">
                                 <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
                             </div>
                             <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
+                                <p>Ville<span>*</span></p>
                                 <input type="text">
                             </div>
                             <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
+                                <p>Région<span>*</span></p>
                                 <input type="text">
                             </div>
                             <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
+                                <p>Adresse postale<span>*</span></p>
                                 <input type="text">
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
+                                        <p>Téléphone<span>*</span></p>
                                         <input type="text">
                                     </div>
                                 </div>
@@ -216,65 +196,106 @@ include 'ajouter_panier.php';
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="acc">
-                                    Create an account?
+                                    Créer un compte ?
                                     <input type="checkbox" id="acc">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
+                            <p>Créez un compte en entrant les informations ci-dessous. Si vous êtes un client récurrent,
+                                veuillez vous connecter en haut de la page.
+                            </p>
                             <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
+                                <p>Mot de passe<span>*</span></p>
                                 <input type="text">
                             </div>
                             <div class="checkout__input__checkbox">
                                 <label for="diff-acc">
-                                    Ship to a different address?
+                                    Expédier à une autre Adresse ?
                                     <input type="checkbox" id="diff-acc">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                             <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
+                                <p>Note de commande<span>*</span></p>
                                 <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
+                                    placeholder="Notez votre commande, ex: note spéciale pour la livraison">
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
-                                <h4>Your Order</h4>
-                                <div class="checkout__order__products">Products <span>Total</span></div>
+                                <h4>Votre Commande</h4>
+                                <div class="checkout__order__products">Total <span>Produits</span></div>
                                 <ul>
-                                    <li>Vegetable’s Package <span>$75.99</span></li>
-                                    <li>Fresh Vegetable <span>$151.99</span></li>
-                                    <li>Organic Bananas <span>$53.99</span></li>
+                                    <li>Graines de Nigelle <span>15000 FCFA</span></li>
+                                    <li>Gel d'Aloes <span>30000 FCFA</span></li>
+                                    <li>Ginseng <span>5000 FCFA</span></li>
                                 </ul>
-                                <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
-                                <div class="checkout__order__total">Total <span>$750.99</span></div>
+                                <div class="checkout__order__subtotal">Sous-Total <span>50000 FCFA</span></div>
+                                <div class="checkout__order__total">Total <span>50000 FCFA</span></div>
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
-                                        Create an account?
+                                        Créer un compte ?
                                         <input type="checkbox" id="acc-or">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                    ut labore et dolore magna aliqua.</p>
                                 <div class="checkout__input__checkbox">
                                     <label for="payment">
-                                        Check Payment
+                                        Choisissez la voie de paiement
                                         <input type="checkbox" id="payment">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="checkout__input__checkbox">
                                     <label for="paypal">
-                                        Paypal
+                                        Téléphone
                                         <input type="checkbox" id="paypal">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                                <div class="checkout__input__checkbox">
+                                    <label for="paypal">
+                                        Mail
+                                        <input type="checkbox" id="paypal">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="paypal">
+                                        Sur place
+                                        <input type="checkbox" id="paypal">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="payment">
+                                        Choisissez le mode de paiement
+                                        <input type="checkbox" id="payment">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="paypal">
+                                        Orange Money
+                                        <input type="checkbox" id="paypal">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="paypal">
+                                        Chèque
+                                        <input type="checkbox" id="paypal">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="paypal">
+                                        Espèce
+                                        <input type="checkbox" id="paypal">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="site-btn">VALIDER</button>
                             </div>
                         </div>
                     </div>
@@ -284,8 +305,9 @@ include 'ajouter_panier.php';
     </section>
     <!-- Checkout Section End -->
 
-    <!-- Footer Section Begin -->
-    <footer class="footer spad">
+
+     <!-- Footer Section Begin -->
+     <footer class="footer spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -302,24 +324,15 @@ include 'ajouter_panier.php';
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Liens utiles</h6>                        <ul>
-                            <li><a href="#">A propos de nous</a></li>
-                            <li><a href="#">A propos de notre boutique</a></li>
-                            <li><a href="#">Notre localisation</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Qui sommmes-nous ?</a></li>
-                            <li><a href="#">Nos services</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
+                       
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                         <h6>Inscrivez-vous à notre bulletin d'informations dès maintenant !</h6>
                         <p>Recevez des mises à jour par email sur notre boutique et nos offres spéciales.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Entrez votre email">
+                        <form action="abonnement.php" method="post">
+                            <input type="text" id="email" name="email" placeholder="Entrez votre email">
                             <button type="submit" class="site-btn">S'abonner</button>
                         </form>
                         <div class="footer__widget__social">
@@ -352,7 +365,10 @@ include 'ajouter_panier.php';
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
- 
+
+
+
+
 
 </body>
 
