@@ -4,7 +4,7 @@ include 'ajouter_panier.php';
 
 ?>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -44,15 +44,8 @@ include 'ajouter_panier.php';
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                             </div>
-                            <div class="header__top__right__language">
-                                <div>Français</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>
-                                    <li><a href="#">English</a></li>
-                                </ul>
-                            </div>
                             <div class="header__top__right__auth">
-                                <a href="./log/log.php"><i class="fa fa-user"></i> Login</a>
+                                <a href="./log/log.php"><i class="fa fa-user"></i> Connexion</a>
                             </div>
                         </div>
                     </div>
@@ -103,22 +96,22 @@ include 'ajouter_panier.php';
                             <span>Catégories</span>
                         </div>
                         <ul>
-                            <li><a href="#">Alimentation</a></li>
-                            <li><a href="#">Beauté</a></li>
-                            <li><a href="#">Energies</a></li>
-                            <li><a href="#">Huiles naturelles</a></li>
-                            <li><a href="#">Tisanes</a></li>
-                            <li><a href="#">Santé</a></li>
-                            <li><a href="#">Régime minceur</a></li>
+                            <li><a href="https://www.performe.co/blog/complements-alimentaires-naturels-efficaces/#:~:text=Parmi%20eux%20%3A%20la%20spiruline%2C%20la,r%C3%A9pond%20%C3%A0%20des%20besoins%20sp%C3%A9cifiques.">Alimentation</a></li>
+                            <li><a href="https://www.luluetguite.fr/blog/article/utiliser-gel-aloe-vera.html">Beauté</a></li>
+                            <li><a href="https://www.bioandco.bio/10-aliments-energetiques-pour-garder-la-forme/">Énergie</a></li>
+                            <li><a href="https://www.passeportsante.net/portail/huiles-vegetales">Huiles naturelles</a></li>
+                            <li><a href="https://www.herboristerieduvalmont.com/blog/tisane-un-guide-complet-de-ses-bienfaits-et-de-ses-utilisations-n150">Tisanes</a></li>
+                            <li><a href="https://www.cuisineaz.com/diaporamas/recettes-a-l-ail-bonnes-pour-la-sante-1988/interne/1.aspx">Santé</a></li>
+                            <li><a href="https://www.doctissimo.fr/html/nutrition/mag_2000/mag1208/nu_3142_menus_1.htm">Régime minceur</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="Que voulez vous?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                            <form action="rechercheBlog.php" method="post">
+                                <input type="text" id="motRecherche" name="motRecherche" placeholder="Quel produit voulez-vous?">
+                                <button type="submit" class="site-btn">RECHERCHER</button>
                             </form>
                         </div>
                         <div class="hero__search__phone">
@@ -143,11 +136,10 @@ include 'ajouter_panier.php';
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Vegetable’s Package</h2>
+                        <h2>Casier d'Huiles Naturelles</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Accueil</a>
-                            <a href="./index.html">Vegetables</a>
-                            <span>Vegetable’s Package</span>
+                            <a href="./index.html">Huiles Naturelles</a>
                         </div>
                     </div>
                 </div>
@@ -164,35 +156,35 @@ include 'ajouter_panier.php';
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="img/product/details/product-details-1.jpg" alt="">
+                                src="img/product/huile6.png" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="img/product/details/product-details-2.jpg"
-                                src="img/product/details/thumb-1.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-3.jpg"
-                                src="img/product/details/thumb-2.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-5.jpg"
-                                src="img/product/details/thumb-3.jpg" alt="">
-                            <img data-imgbigurl="img/product/details/product-details-4.jpg"
-                                src="img/product/details/thumb-4.jpg" alt="">
+                            <img data-imgbigurl="img/product/oliveDetail1.jpeg"
+                                src="img/product/oliveDetail1.jpeg" alt="">
+                            <img data-imgbigurl="img/product//oliveDetail2.jpeg"
+                                src="img/product/oliveDetail2.jpeg" alt="">
+                            <img data-imgbigurl="img/product//oliveDetail3.jpeg"
+                                src="img/product/oliveDetail3.jpeg" alt="">
+                            <img data-imgbigurl="img/product//oliveDetail4.jpeg"
+                                src="img/product/oliveDetail4.jpeg" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3>Vetgetable’s Package</h3>
+                        <h3>Casier d'Huiles Naturelles</h3>
                         <div class="product__details__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
-                            <span>(18 reviews)</span>
+                            <span>(18 avis)</span>
                         </div>
-                        <div class="product__details__price">$50.00</div>
-                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
-                            vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                        <div class="product__details__price">7000 FCFA</div>
+                        <p>Notre huile d’olive 100 % biologique et naturelle de catégorie supérieure s’empare du parfum des olives fraîchement cueillies à la main. 
+                            Cette huile est extraite d'olives biologiques dont la variété est la plus présente sur Ivbidjnan. 
+                            Pressée à froid, cette huile d’olive présente un taux d’acidité de moins de 0,8 %.</p>
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
@@ -205,7 +197,7 @@ include 'ajouter_panier.php';
                         <ul>
                             <li><b>Dispoibilité</b> <span>En stock</span></li>
                             <li><b>Livraison</b> <span>01 Jours <samp> maximum</samp></span></li>
-                            <li><b>Poids</b> <span>0.5 kg</span></li>
+                            <li><b>Poids</b> <span>1 kg</span></li>
                             <li><b>Partager</b>
                                 <div class="share">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -228,61 +220,38 @@ include 'ajouter_panier.php';
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
-                                        suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
-                                        vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat,
-                                        accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
-                                        pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula
-                                        elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus
-                                        et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam
-                                        vel, ullamcorper sit amet ligula. Proin eget tortor risus.</p>
-                                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed
-                                        porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum
-                                        sed sit amet dui. Proin eget tortor risus.</p>
+                                    <h6>Description</h6>
+                                    <p>Les techniques anciennes de pression des olives nécessitaient de faire fermenter la récolte dans des sacs de jutes environ 15 jours. 
+                                        Cela avait pour effet de chauffer les olives et de rendre leurs jus plus facilement extractible. </p>
+                                        Cette méthode faisait apparaître de nombreux champignons et levures, liés à la fermentation, qui altéraient le goût de fruit frais.
+                                        <p>Aujourd’hui, l’extraction par centrifugation à froid permet d’extraire l’huile le jour de la récolte, tout en préservant les polyphénols et les vitamines. 
+                                            Toutefois pour retrouver les goûts rappelant “l’huile d’antan”,
+                                             des producteurs se sont mobilisés afin de mettre en place des techniques pour concilier la qualité et le goût typique d’une huile issue d’olives fermentées.</p>
+                                            L’ardence et l’amertume disparaissent au profit d’arômes d’olives noires.</p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                        Proin eget tortor risus.</p>
-                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                                    <h6>Description</h6>
+                                    <p>Les techniques anciennes de pression des olives nécessitaient de faire fermenter la récolte dans des sacs de jutes environ 15 jours. 
+                                        Cela avait pour effet de chauffer les olives et de rendre leurs jus plus facilement extractible. </p>
+                                        Cette méthode faisait apparaître de nombreux champignons et levures, liés à la fermentation, qui altéraient le goût de fruit frais.
+                                        <p>Aujourd’hui, l’extraction par centrifugation à froid permet d’extraire l’huile le jour de la récolte, tout en préservant les polyphénols et les vitamines. 
+                                            Toutefois pour retrouver les goûts rappelant “l’huile d’antan”,
+                                             des producteurs se sont mobilisés afin de mettre en place des techniques pour concilier la qualité et le goût typique d’une huile issue d’olives fermentées.</p>
+                                            L’ardence et l’amertume disparaissent au profit d’arômes d’olives noires.</p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                        Proin eget tortor risus.</p>
+                                    <h6>Description</h6>
+                                    <p>Les techniques anciennes de pression des olives nécessitaient de faire fermenter la récolte dans des sacs de jutes environ 15 jours. 
+                                        Cela avait pour effet de chauffer les olives et de rendre leurs jus plus facilement extractible. </p>
+                                        Cette méthode faisait apparaître de nombreux champignons et levures, liés à la fermentation, qui altéraient le goût de fruit frais.
+                                        <p>Aujourd’hui, l’extraction par centrifugation à froid permet d’extraire l’huile le jour de la récolte, tout en préservant les polyphénols et les vitamines. 
+                                            Toutefois pour retrouver les goûts rappelant “l’huile d’antan”,
+                                             des producteurs se sont mobilisés afin de mettre en place des techniques pour concilier la qualité et le goût typique d’une huile issue d’olives fermentées.</p>
+                                            L’ardence et l’amertume disparaissent au profit d’arômes d’olives noires.</p>
                                 </div>
                             </div>
                         </div>
@@ -299,14 +268,14 @@ include 'ajouter_panier.php';
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title related__product__title">
-                        <h2>Produits Similaires</h2>
+                        <h2>Autres Huiles Naturelles du Casier</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/huile4.png">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -314,14 +283,14 @@ include 'ajouter_panier.php';
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a href="#">Huile de Rincin</a></h6>
+                            <h5>6000 FCFA</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/huile1.png">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -329,14 +298,14 @@ include 'ajouter_panier.php';
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a href="#">Huile de Nigelle</a></h6>
+                            <h5>6000 FCFA</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/beauté1.png">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -344,14 +313,14 @@ include 'ajouter_panier.php';
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a href="#">Huile de Coco</a></h6>
+                            <h5>5000 FCFA</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-7.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="img/product/huile3.png">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -359,8 +328,8 @@ include 'ajouter_panier.php';
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a href="#">Huile d'Argan</a></h6>
+                            <h5>6500 FCFA</h5>
                         </div>
                     </div>
                 </div>
@@ -387,24 +356,15 @@ include 'ajouter_panier.php';
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Liens utiles</h6>                        <ul>
-                            <li><a href="#">A propos de nous</a></li>
-                            <li><a href="#">A propos de notre boutique</a></li>
-                            <li><a href="#">Notre localisation</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Qui sommmes-nous ?</a></li>
-                            <li><a href="#">Nos services</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
+                       
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
                         <h6>Inscrivez-vous à notre bulletin d'informations dès maintenant !</h6>
                         <p>Recevez des mises à jour par email sur notre boutique et nos offres spéciales.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Entrez votre email">
+                        <form action="abonnement.php" method="post">
+                            <input type="text" id="email" name="email" placeholder="Entrez votre email">
                             <button type="submit" class="site-btn">S'abonner</button>
                         </form>
                         <div class="footer__widget__social">
@@ -436,6 +396,10 @@ include 'ajouter_panier.php';
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
+
+
+
 
 
 </body>
