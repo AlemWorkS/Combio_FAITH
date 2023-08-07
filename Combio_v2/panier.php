@@ -195,13 +195,23 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
+
                         <ul>
-                            <li>Subtotal <span>$454.98</span></li>
-                            <li>Total <span>$454.98</span></li>
-                        </ul>
+                            <?php 
+                                // Calculer le total à payer
+                                $totalAPayer = 0;
+                                foreach($_SESSION['panier'] as $id => $quantite) {
+                                $result = mysqli_query($conn, "SELECT * FROM produits WHERE refproduits = $id");
+                                $produit = mysqli_fetch_assoc($result);
+                                $totalAPayer += $produit['prixvente'] * $quantite;
+                            }
+                            ?>
+                            <li>Montant total à payer <span><?=$totalAPayer?> FCFA</span></li>
+                         </ul>
                         <a href="./checkout.php" class="primary-btn">PAYER</a>
                     </div>
+
+
                 </div>
             </div>
         </div>
