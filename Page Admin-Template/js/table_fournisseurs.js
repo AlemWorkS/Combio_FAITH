@@ -12,7 +12,7 @@ $(function() {
         autoload: true,
         pageSize: 15,
         pageButtonCount: 5,
-        deleteConfirm: "Do you really want to delete the client?",
+        deleteConfirm: "Voulez-vous vraiment supprimer ce fournisseur?",
         controller: {
             loadData: function() {
                 return $.ajax({
@@ -61,7 +61,7 @@ $(function() {
         fields: [{
             name: "IDFOURNISSEUR",
             type: "text",
-            width: 150,
+            width: 100,
 
         },
         {
@@ -77,7 +77,7 @@ $(function() {
         {
             name: "PRENOMFOURNISSEUR",
             type: "text",
-            width: 200
+            width: 300
         },
         
         {

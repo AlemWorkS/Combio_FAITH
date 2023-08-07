@@ -1,8 +1,17 @@
+<!--<?php
+$nom_serveur="localhost";
+$utilisateur="root";
+$mdp="jojo225@";
+$bd="combio";
+
+$con = new mysqli($nom_serveur,$utilisateur,$mdp,$bd);
+?>
+-->
 <!DOCTYPE html>
 <html lang="en">
 
 
-<!-- Mirrored from www.urbanui.com/melody/template/pages/tables/js-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:41 GMT -->
+<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:10:26 GMT -->
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -13,8 +22,6 @@
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
@@ -26,7 +33,7 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="../samples/orders.php"><img src="../../img/logo.png" alt="logo" style ="height:100px ;display: flex;"/></a>
+      <a class="navbar-brand brand-logo" href="../samples/orders.php"><img src="../../img/logo.png" alt="logo" style ="height:100px ;display: flex;"/></a>
         <a class="navbar-brand brand-logo-mini" href="../samples/orders.php"><img src="../../img/logo.png"  style ="object-fit:cover ; height:60px;  flex;"alt="logo"></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -37,31 +44,34 @@
           <li class="nav-item nav-search d-none d-md-flex">
             <div class="nav-link">
               <div class="input-group">
-                <div class="input-group-prepend">
-                 
-                </div>
-               
+                
+                
               </div>
             </div>
           </li>
         </ul>
+       
+        
+          
+          
+         
         <ul class="navbar-nav navbar-nav-right">
          
           
            
-          <a class="dropdown-item">
-            <i class="fas fa-power-off text-primary"></i>
-            Déconnexion
-          </a>
-
-        </ul>
+         <a class="dropdown-item">
+           <i class="fas fa-power-off text-primary"></i>
+           Déconnexion
+         </a>
+      </ul>
+       
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="fas fa-bars"></span>
         </button>
       </div>
-    </nav>  
+    </nav>
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper" style="overflow-x:scroll;">
+    <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_settings-panel.html -->
       <div class="theme-setting-wrapper">
         <div id="settings-trigger"><i class="fas fa-fill-drip"></i></div>
@@ -238,24 +248,25 @@
           <li class="nav-item nav-profile">
             <div class="nav-link">
              
-              <div class="profile-name">
+            <div class="profile-name">
                 <p class="name">
                   Bienvenue Administrateur
                 </p>
                
-              </div>
+              
+              
             </div>
           </li>
 
           
-          
+         
 
           <!--Accès aux commandes-->
           <li class="nav-item">
-            <a class="nav-link" href="../samples/orders.php">
+            <a class="nav-link" href="#">
               <i class="fas fa-shopping-cart menu-icon"></i>
               <span class="menu-title">Commande</span>
-              <i class="menu-arrow"></i>
+             
             </a>
           </li>
           <!--Fin accès aux commandes-->
@@ -271,79 +282,131 @@
 
           <!--Les produits-->
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../tables/produits.html">
               <i class="fas fa-shopping-bag menu-icon"></i>
               <span class="menu-title">Produits</span>
-             
+              <i class="menu-arrow"></i>
             </a>
           </li>
+
+      
+          
+          
           
         </ul>
-      </nav> 
-
-      <!-- table des produits -->
-      <div class="main-panel">
+      </nav>    
+        <!-- partial -->
+      <div class="main-panel">          
         <div class="content-wrapper">
           <div class="page-header">
             <h3 class="page-title">
-              Produits
+              Commandes
             </h3>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Sample pages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Orders</li>
+              </ol>
+            </nav>
           </div>
-          <div class="row grid-margin">
+          <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-description">Listes de tous les produits</p>
-                  <div id="js-grid"></div>
+                  <h4 class="card-title">Commandes</h4>
                  
-                </div>
-              </div>
-              
-            </div>
-            <div class="row grid-margin">
-              <div class="content-wrapper">
-                <div class="page-header">
-                  <h3 class="page-title">
-                    Emballage
-                  </h3>
-                </div>
-                <div class="col-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-description">Listes de tous les fournisseurs</p>
-                      <div id="js-emballage"></div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="table-responsive"  >
+                        <table id="order-listing" class="table" border="1" >
+                          <thead>
+                            <tr class="bg-primary text-white"  >
+                                <th style="background: #f2f2f2; color:black;">nocommande</th>
+                                <th style="background: #f2f2f2; color:black;">datecom</th>
+                                <th style="background: #f2f2f2; color:black;">adressedelivraison</th>
+                                <th style="background: #f2f2f2; color:black;">noclient</th>
+                                <th style="background: #f2f2f2; color:black;">IDPAIEMENT</th>
+                                <th style="background: #f2f2f2; color:black;">IDVPAIEMENT</th>
+                                <th style="background: #f2f2f2; color:black;">choixVPaiement</th>
+                                <th style="background: #f2f2f2;  color:black;">SUPPRESSION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <?php
+                          $result = $con ->query("SELECT *
+                                                      FROM commandes
+                                                      ");
+                          if ($result->num_rows > 0) {
+                              // output data of each row
+                              while($row = $result->fetch_assoc()) {
+                                  ?>
+                          <tr>
+                          <td>
+                              <div class="userDatatable-content">
+                                  <?=$row["nocommande"]?>
+                              </div>
+                          </td>
+                          <td>
+                              <div class="userDatatable-content">
+                                  <?=$row["datecom"]?>
+                              </div>
+                          </td>
+                          <td>
+                              <div class="userDatatable-content">
+                                  <?=$row["adressedelivraison"]?>
+                              </div>
+                        </td>
+                        <td>
+                              <div class="userDatatable-content">
+                                  <?=$row["noclient"]?>
+                              </div>
+                          </td>
+                          <td>
+                              <div class="userDatatable-content">
+                                  <?=$row["IDPAIEMENT"]?>
+                              </div>
+                          <td>
+                              <div class="userDatatable-content">
+                                  <?=$row["IDVPAIEMENT"]?>
+                              </div>
+                          </td>
+                          <td>
+                              <div class="userDatatable-content">
+                                  <?=$row["choixVPaiement"]?>
+                              </div>
+                          </td>
+                          <td>
+                              <form class="userDatatable-content" method="POST" action="supprimer_commande.php">
+                                  <input type="hidden" value="<?=$row["nocommande"]?>" name="supprimer">
+                                  <input class="fa fa-" type="submit" value="SUPPRIMER">
+                              </form>
+                              
+                          </td>
+                          </tr>
+                          <?php
+                              }
+                          }
+                          ?>
+                        </tbody>
+                      </table>
+                      </div>
                     </div>
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
-          
         </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2018 <a href="https://www.urbanui.com/" target="_blank">Urbanui</a>. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="far fa-heart text-danger"></i></span>
+          </div>
+        </footer>
+        <!-- partial -->
       </div>
-      <div class="row grid-margin">
-        <div class="content-wrapper">
-          <div class="page-header">
-            <h3 class="page-title">
-              Categories
-            </h3>
-         </div>
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <p class="card-description">Listes de toutes les catégories</p>
-                <div id="js-categ"></div>
-              </div>
-            </div>
-         </div>
-      </div>
-      
-    
-    
-
-
-
-      
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
@@ -361,13 +424,9 @@
   <script src="../../js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="../../js/table_produits.js"></script>
-  <script src="../../js/table_categories.js"></script>
-  <script src="../../js/table_emballage.js"></script>
-
   <!-- End custom js for this page-->
 </body>
 
 
-<!-- Mirrored from www.urbanui.com/melody/template/pages/tables/js-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:42 GMT -->
+<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/orders.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:10:27 GMT -->
 </html>

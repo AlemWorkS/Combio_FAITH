@@ -2,7 +2,7 @@
 // Connexion à la base de données (vous devrez remplacer les valeurs avec celles de votre propre base de données)
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "jojo225@";
 $dbname = "combio";
 
 try {

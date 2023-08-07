@@ -2,7 +2,7 @@
 // Assurez-vous d'avoir les informations de connexion correctes à votre base de données
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "jojo225@";
 $dbname = "combio";
 
 // Récupérez les données mises à jour depuis la requête POST
