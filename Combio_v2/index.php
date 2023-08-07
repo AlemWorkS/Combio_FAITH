@@ -227,7 +227,7 @@ include 'ajouter_panier.php';
                             echo '        </ul>';
                             echo '    </div>';
                             echo '    <div class="featured__item__text">';
-                            echo '        <h6><a href="./shop-details.php">'. $row["libelle"] . '</a></h6>';
+                            echo '        <h6><a href="./shop-details.php?ref='. $row["refproduits"] . '">'. $row["libelle"] . '</a></h6>';
                             echo '        <h5>'. $row["prixvente"] .' FCFA  </h5>';
                             echo '    </div>';
                             echo '</div>';

@@ -152,111 +152,54 @@ include 'ajouter_panier.php';
     <section class="product-details spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="product__details__pic">
-                        <div class="product__details__pic__item">
-                            <img class="product__details__pic__item--large"
-                                src="img/product/huile6.png" alt="">
-                        </div>
-                        <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="img/product/oliveDetail1.jpeg"
-                                src="img/product/oliveDetail1.jpeg" alt="">
-                            <img data-imgbigurl="img/product//oliveDetail2.jpeg"
-                                src="img/product/oliveDetail2.jpeg" alt="">
-                            <img data-imgbigurl="img/product//oliveDetail3.jpeg"
-                                src="img/product/oliveDetail3.jpeg" alt="">
-                            <img data-imgbigurl="img/product//oliveDetail4.jpeg"
-                                src="img/product/oliveDetail4.jpeg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="product__details__text">
-                        <h3>Casier d'Huiles Naturelles</h3>
-                        <div class="product__details__rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <span>(18 avis)</span>
-                        </div>
-                        <div class="product__details__price">7000 FCFA</div>
-                        <p>Notre huile d’olive 100 % biologique et naturelle de catégorie supérieure s’empare du parfum des olives fraîchement cueillies à la main. 
-                            Cette huile est extraite d'olives biologiques dont la variété est la plus présente sur Ivbidjnan. 
-                            Pressée à froid, cette huile d’olive présente un taux d’acidité de moins de 0,8 %.</p>
-                        <div class="product__details__quantity">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="primary-btn">Ajouter au panier</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <ul>
-                            <li><b>Dispoibilité</b> <span>En stock</span></li>
-                            <li><b>Livraison</b> <span>01 Jours <samp> maximum</samp></span></li>
-                            <li><b>Poids</b> <span>1 kg</span></li>
-                            <li><b>Partager</b>
-                                <div class="share">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="product__details__tab">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                                    aria-selected="true">Description</a>
-                            </li>
+                <?php
+                 // Requête SQL pour récupérer les données de la table "modele"
+                 $ref = $_GET['ref'];
+                 $sql = "SELECT *  FROM produits WHERE refproduits = '$ref'";
+                 
+                 $result = $conn->query($sql);
 
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                                <div class="product__details__tab__desc">
-                                    <h6>Description</h6>
-                                    <p>Les techniques anciennes de pression des olives nécessitaient de faire fermenter la récolte dans des sacs de jutes environ 15 jours. 
-                                        Cela avait pour effet de chauffer les olives et de rendre leurs jus plus facilement extractible. </p>
-                                        Cette méthode faisait apparaître de nombreux champignons et levures, liés à la fermentation, qui altéraient le goût de fruit frais.
-                                        <p>Aujourd’hui, l’extraction par centrifugation à froid permet d’extraire l’huile le jour de la récolte, tout en préservant les polyphénols et les vitamines. 
-                                            Toutefois pour retrouver les goûts rappelant “l’huile d’antan”,
-                                             des producteurs se sont mobilisés afin de mettre en place des techniques pour concilier la qualité et le goût typique d’une huile issue d’olives fermentées.</p>
-                                            L’ardence et l’amertume disparaissent au profit d’arômes d’olives noires.</p>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tabs-2" role="tabpanel">
-                                <div class="product__details__tab__desc">
-                                    <h6>Description</h6>
-                                    <p>Les techniques anciennes de pression des olives nécessitaient de faire fermenter la récolte dans des sacs de jutes environ 15 jours. 
-                                        Cela avait pour effet de chauffer les olives et de rendre leurs jus plus facilement extractible. </p>
-                                        Cette méthode faisait apparaître de nombreux champignons et levures, liés à la fermentation, qui altéraient le goût de fruit frais.
-                                        <p>Aujourd’hui, l’extraction par centrifugation à froid permet d’extraire l’huile le jour de la récolte, tout en préservant les polyphénols et les vitamines. 
-                                            Toutefois pour retrouver les goûts rappelant “l’huile d’antan”,
-                                             des producteurs se sont mobilisés afin de mettre en place des techniques pour concilier la qualité et le goût typique d’une huile issue d’olives fermentées.</p>
-                                            L’ardence et l’amertume disparaissent au profit d’arômes d’olives noires.</p>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                <div class="product__details__tab__desc">
-                                    <h6>Description</h6>
-                                    <p>Les techniques anciennes de pression des olives nécessitaient de faire fermenter la récolte dans des sacs de jutes environ 15 jours. 
-                                        Cela avait pour effet de chauffer les olives et de rendre leurs jus plus facilement extractible. </p>
-                                        Cette méthode faisait apparaître de nombreux champignons et levures, liés à la fermentation, qui altéraient le goût de fruit frais.
-                                        <p>Aujourd’hui, l’extraction par centrifugation à froid permet d’extraire l’huile le jour de la récolte, tout en préservant les polyphénols et les vitamines. 
-                                            Toutefois pour retrouver les goûts rappelant “l’huile d’antan”,
-                                             des producteurs se sont mobilisés afin de mettre en place des techniques pour concilier la qualité et le goût typique d’une huile issue d’olives fermentées.</p>
-                                            L’ardence et l’amertume disparaissent au profit d’arômes d’olives noires.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                 // Vérifier s'il y a des résultats
+                 if ($result->num_rows > 0) {
+                    // Parcourir les résultats et afficher les données pour chaque modèle
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<div class="col-lg-6 col-md-6">';
+                        echo '  <div class="product__details__pic">';
+                        echo '      <div class="product__details__pic__item">';
+                        echo '          <img class="product__details__pic__item--large" src="'.$row["image"].'" alt="">';
+                        echo '      </div>';
+                        echo '  </div>';
+                        echo '</div>';
+                        echo '<div class="col-lg-6 col-md-6">';
+                        echo '  <div class="product__details__text">';
+                        echo '      <h3>'. $row["libelle"] . '</h3>';
+                        echo '          <div class="product__details__rating">';
+                        echo '              <i class="fa fa-star"></i>';
+                        echo '              <i class="fa fa-star"></i>';
+                        echo '              <i class="fa fa-star"></i>';
+                        echo '              <i class="fa fa-star"></i>';
+                        echo '              <i class="fa fa-star-half-o"></i>';
+                        echo '          </div>';
+                        echo '          <div class="product__details__price">'. $row["prixvente"] .' FCFA  </div>';
+                        echo '              <p>'.$row["description"].'</p>';
+                        echo '              <div class="product__details__quantity">';
+                        echo '                  <div class="quantity">';
+                        echo '                      <div class="pro-qty">';
+                        echo '                          <input type="text" value="1">';
+                        echo '                      </div>';
+                        echo '                  </div>';
+                        echo '              </div>';
+                        echo '              <a href="panier.php" class="primary-btn">Ajouter au panier</a>';
+                        echo '              <ul>';
+                        echo '                  <li><b>Livraison</b> <span>03 Jours <samp> maximum</samp></span></li>';
+                        echo '                  <li><b>Poids</b> <span>0.5 kg</span></li>';
+                        echo '              </ul>';
+                        echo '          </div>';
+                        echo '  </div>';
+                        echo '</div>';
+                    }
+                }
+                ?>
             </div>
         </div>
     </section>
