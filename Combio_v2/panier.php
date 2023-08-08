@@ -1,6 +1,7 @@
 <?php
-    session_start();
+    
     include_once("connexion.php");
+    include 'update_totals.php';
 
     //Supprimer les produits
     //Si la variable del existe
@@ -28,6 +29,8 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="panier.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 </head>
 
@@ -123,61 +126,57 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="shoping__product">Nom</th>
-                                    <th>Prix</th>
-                                    <th>Quantité</th>
-                                    <th>Total</th>
-                                    <th>Supprimer</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                //Liste des produits
-                                //Récupérer les clés du tableau session
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="shoping__product">Nom</th>
+                                <th>Prix</th>
+                                <th>Quantité</th>
+                                <th>Total</th>
+                                <th>Supprimer</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
                                 $ids = array_keys($_SESSION['panier']);
-                                //S'il n'y a aucunne clé dans le tableau
-                                if(empty($ids)){
-                                    echo "Votre panier est vide";
-                                }else{
-                                    //Si oui
-                                    $produits  = mysqli_query($conn, "SELECT * FROM produits WHERE refproduits IN (".implode(',',$ids).")");
-                                
-                                    //Liste des produits avec boucle foreach
+                                $totalSousTotal = 0;
 
-                                    foreach($produits as $produits): 
-                                        //Calculer le total par tuple
-                                        $total = $_SESSION['panier'][$produits['refproduits']]*$produits['prixvente']
-                                    ?>
-                                    <tr>
-                                        <td class="shoping__cart__item">
-                                            <img src="img/<?=$produits['image']?>" alt="">
-                                            <h5><?=$produits['libelle']?></h5>
-                                        </td>
-                                        <td class="shoping__cart__total">
-                                        <?=$produits['prixvente']?> FCFA
-                                        </td>
-                                        <td class="shoping__cart__total">
-                                            <div class="shoping__cart__price">
-                                                <?=$_SESSION['panier'][$produits['refproduits']] //Qté?>       
-                                            </div>
-                                        </td>
-                                        <td class="shoping__cart__total">
-                                            <?=$total ?> FCFA
-                                        </td>
-                                        <td>
-                                            <a href="panier.php?del=<?=$produits['refproduits']?>">Supprimer</a>
-                                        </td>
-                                    </tr>
-                                    
-
-                                <?php endforeach;}?>
-        
-                            </tbody>
-                        </table>
+                                if (empty($ids)) {
+                                    echo "<tr><td colspan='6'>Votre panier est vide</td></tr>";
+                                } else {
+                                $produits = mysqli_query($conn, "SELECT * FROM produits WHERE refproduits IN (".implode(',',$ids).")");
+            
+                                foreach ($produits as $produit): 
+                                    $total = $_SESSION['panier'][$produit['refproduits']] * $produit['prixvente'];
+                                    $totalSousTotal += $total;
+                            ?>
+                            <tr>
+                                <td class="shoping__cart__item">
+                                    <img src="img/<?= $produit['image'] ?>" alt="">
+                                    <h5><?= $produit['libelle'] ?></h5>
+                                </td>
+                                <td class="shoping__cart__total">
+                                    <?= $produit['prixvente'] ?> FCFA
+                                </td>
+                                 <td class="shoping__cart__total">
+                                    <div class="shoping__cart__quantity">
+                                        <button class="quantity-button" data-action="decrease" data-id="<?= $produit['refproduits'] ?>">-</button>
+                                        <span data-id="<?= $produit['refproduits'] ?>"><?= $_SESSION['panier'][$produit['refproduits']] ?></span>
+                                        <button class="quantity-button" data-action="increase" data-id="<?= $produit['refproduits'] ?>">+</button>
+                                    </div>
+                                </td>
+                                <td class="shoping__cart__total">
+                                    <?= $total ?> FCFA
+                                </td>
+                                <td>
+                                    <a href="panier.php?del=<?= $produit['refproduits'] ?>">Supprimer</a>
+                                </td>
+                            </tr>
+                            <?php endforeach;
+                            }?>
+                        </tbody>
+                    </table>
                     </div>
                 </div>
             </div>
@@ -187,13 +186,18 @@
                         <a href="./index.php" class="primary-btn cart-btn">CONTINUER LES ACHATS</a>
                 </div>
                 <div class="col-lg-6">
+                    
                     <div class="shoping__checkout">
                         <h5>Total du Panier</h5>
-                        <ul>
-                            <li>Sous-Total <span>50000 FCFA</span></li>
-                            <li>Total <span>50000 FCFA</span></li>
-                        </ul>
-                        <a href="./checkout.php" class="primary-btn">PAYER</a>
+                            <ul>
+                                <?php if (empty($ids)) : ?>
+                                <li>Votre panier est vide</li>
+                                <?php else : ?>
+                                <li>Sous-Total <span id="sous-total"><?= number_format($totalSousTotal, 0, '.', ' ') ?> FCFA</span></li>
+                                <li>Total <span id="total"><?= number_format($totalSousTotal, 0, '.', ' ') ?> FCFA</span></li>
+                                <?php endif; ?>
+                            </ul>
+                            <a href="./checkout.php" class="primary-btn">PAYER</a>
                     </div>
                 </div>
             </div>
@@ -257,6 +261,43 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".quantity-button").on("click", function() {
+                var action = $(this).data("action");
+                var productId = $(this).data("id");
+                
+                var currentQuantity = parseInt($("span[data-id='" + productId + "']").text());
+
+                if (action === "increase") {
+                    currentQuantity++;
+                } else if (action === "decrease" && currentQuantity > 1) {
+                    currentQuantity--;
+                }
+
+                $("span[data-id='" + productId + "']").text(currentQuantity);
+
+                updateTotals(productId, currentQuantity);
+            });
+
+            function updateTotals(productId, quantity) {
+                $.ajax({
+                    url: "update_totals.php", // Chemin vers le fichier PHP de mise à jour
+                    type: "POST",
+                    data: { productId: productId, quantity: quantity },
+                    success: function(data) {
+                        var response = JSON.parse(data);
+                        if (response.success) {
+                            $("#sous-total").text(response.sousTotal + " FCFA");
+                            $("#total").text(response.total + " FCFA");
+                        }
+                    }
+                });
+            }
+        });
+</script>
+
+
 
 
 </body>
