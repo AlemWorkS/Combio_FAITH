@@ -82,11 +82,6 @@
                 name: "image",
                 type: "text",
                 width: 100,
-                itemTemplate: function(value, item) {
-                    console.log(item.image)
-                        return '<img src="'+ item.image +'">';    
-                                            return '';
-                 }
 
             },
             {

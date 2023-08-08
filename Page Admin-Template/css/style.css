@@ -19609,11 +19609,11 @@ input:focus {
     box-shadow: none;
   }
 }
-.auth-form-light
+
 /* Typography */
 body {
-  font-size:0.9rem;
-  font-family:'Times New Roman', Times, serif;
+  font-size: 1rem;
+  font-family: "PTSans", sans-serif;
   font-weight: initial;
   line-height: normal;
   -webkit-font-smoothing: antialiased;
@@ -27901,7 +27901,7 @@ body.avgrund-active {
 .owl-carousel img {
   border-radius: 4px;
 }
-body
+
 .owl-carousel.full-width .owl-nav {
   position: absolute;
   top: 30%;
@@ -29109,7 +29109,6 @@ div.tagsinput span.tag a {
 
 .auth .auth-form-light {
   background: #ffffff;
-  border-radius: 5%;
 }
 
 .auth .auth-form-light select {
