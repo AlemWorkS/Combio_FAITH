@@ -36,26 +36,6 @@ include 'ajouter_panier.php';
 
     <!-- Header Section Begin -->
     <header class="header">
-    <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="./log/log.php"><i class="fa fa-user"></i> Connexion</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -158,7 +138,7 @@ include 'ajouter_panier.php';
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="row">
-                                <div class="col-lg-6">
+                                <!-- <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Nom<span>*</span></p>
                                         <input type="text">
@@ -169,69 +149,40 @@ include 'ajouter_panier.php';
                                         <p>Prénoms<span>*</span></p>
                                         <input type="text">
                                     </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Pays<span>*</span></p>
-                                <input type="text">
+                                </div> -->
                             </div>
                             <div class="checkout__input">
                                 <p>Adresse<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
+                                <input type="text" placeholder="Addresse" class="checkout__input__add">
+                                <input type="text" placeholder="Appartement, plus de détails ...">
                             </div>
                             <div class="checkout__input">
-                                <p>Ville<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Région<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Adresse postale<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Téléphone<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Créer un compte ?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p>Créez un compte en entrant les informations ci-dessous. Si vous êtes un client récurrent,
-                                veuillez vous connecter en haut de la page.
-                            </p>
-                            <div class="checkout__input">
-                                <p>Mot de passe<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Expédier à une autre Adresse ?
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
+                                <p>Téléphone</p>
+                                <input type="text" placeholder="Numéro de téléphone">
                             </div>
                             <div class="checkout__input">
                                 <p>Note de commande<span>*</span></p>
                                 <input type="text"
                                     placeholder="Notez votre commande, ex: note spéciale pour la livraison">
+                            </div><br>
+                            <h4>Voie de paiement</h4>
+                            <div class="checkout__input__checkbox">
+                                <input type="radio" name="IDVPAIEMENT" value="MAG">
+                                <label for="">MAGASIN</label><br>
+                                <input type="radio" name="IDVPAIEMENT" value="TEL">
+                                <label for="">TELEPHONE</label><br>
+                            </div><br>
+                            <h4>Mode de paiement</h4>
+                            <div class="checkout__input__checkbox">
+                                <input type="radio" name="IDPAIEMENT" value="CHQ">
+                                <label for="">CHÈQUE</label><br>
+                                <input type="radio" name="IDPAIEMENT" value="CSH">
+                                <label for="">CASH</label><br>
+                                <input type="radio" name="IDPAIEMENT" value="MOM">
+                                <label for="">MOBILE MONEY</label><br>
                             </div>
+                                
+                               
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
@@ -245,67 +196,6 @@ include 'ajouter_panier.php';
                                 <div class="checkout__order__subtotal">Sous-Total <span>50000 FCFA</span></div>
                                 <div class="checkout__order__total">Total <span>50000 FCFA</span></div>
                                 <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Créer un compte ?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Choisissez la voie de paiement
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Téléphone
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Mail
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Sur place
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Choisissez le mode de paiement
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Orange Money
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Chèque
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Espèce
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
                                 </div>
                                 <button type="submit" class="site-btn">VALIDER</button>
                             </div>

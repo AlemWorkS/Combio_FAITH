@@ -26,13 +26,15 @@ if (isset($_POST["connexion"])) {
             echo 'Administrateur';
             // header("Location: ../admin.php"); 
         } else {
-            header("Location: ../index.php");
+            header("Location: ./checkout.php");
         }
         exit();
     } else {
         echo "Identifiants invalides. Veuillez réessayer.";
     }
 }
+
+//Insertion user
 
 if (isset($_POST["inscription"])) {
     $nom = $_POST["nom"];
@@ -52,6 +54,27 @@ if (isset($_POST["inscription"])) {
     }
 }
 
+//Insertion Clients
+
+if (isset($_POST["inscription"])) {
+    $nom = $_POST["nom"];
+    $prenom = $_POST["prenom"];
+    $ville = $_POST["ville"];
+    $telephone = $_POST["telephone"];
+    $parrain = $_POST["parrain"];
+
+    // Vous devriez ajouter des vérifications supplémentaires (par exemple, si l'email est unique) avant d'insérer les données dans la base de données.
+
+    $sql = "INSERT INTO clients (nom, prenoms, ville, contact,  id_parrain) VALUES ('$nom', '$prenom', '$ville', '$telephone', '$parrain')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "";
+    } else {
+        echo "Erreur lors de l'inscription : " . $conn->error;
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -69,9 +92,15 @@ if (isset($_POST["inscription"])) {
 			<h1>Créer un compte</h1>
 			<input type="nom" name="nom" placeholder="Nom" />
 			<input type="prenom" name="prenom" placeholder="Prenom" />
+            <input type="ville" name="ville"placeholder="Ville" />
 			<input type="email" name="email" placeholder="Email" />
 			<input type="password" name="password" placeholder="Password" />
 			<input type="telephone" name="telephone" placeholder="telephone" />
+            <label for="parrain">Parrain : </label><select name="parrain" id="parrain">
+                    <option value="2K">Wantche</option>
+                    <option value="ScottBaybi">Deba</option>
+		            <option value="waa">Le</option>
+            </select>
 			<button type="submit" name="inscription">S'inscrire</button>
 		</form>
 	</div>
@@ -87,7 +116,7 @@ if (isset($_POST["inscription"])) {
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
 				<h1>Bienvenue</h1>
-				<button class="ghost" id="signIn">se connecter</button>
+				<button class="ghost" id="signIn">Se connecter</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Bonjour, Mr/Mme</h1>

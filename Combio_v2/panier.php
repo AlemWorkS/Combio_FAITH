@@ -37,27 +37,7 @@
 <body >
 
     <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                           
-                            <div class="header__top__right__auth">
-                                <a href="./log/log.php"><i class="fa fa-user"></i> Connexion</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -197,7 +177,7 @@
                                 <li>Total <span id="total"><?= number_format($totalSousTotal, 0, '.', ' ') ?> FCFA</span></li>
                                 <?php endif; ?>
                             </ul>
-                            <a href="./checkout.php" class="primary-btn">PAYER</a>
+                            <a href="./log/log.php" class="primary-btn" name="payer">PAYER</a>
                     </div>
                 </div>
             </div>

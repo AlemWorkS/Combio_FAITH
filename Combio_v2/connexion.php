@@ -3,7 +3,7 @@
 // //echo "connexion :OK";
 $servername = 'localhost';
     $username = 'root';
-    $password = '';
+    $password = 'root';
     $dbname = 'combio';
 
     $conn = new mysqli($servername, $username, $password, $dbname);

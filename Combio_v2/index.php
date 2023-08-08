@@ -36,25 +36,7 @@ include 'ajouter_panier.php';
 
     <!-- Header Section Begin -->
     <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                    <div class="header__top__right">
-                            <div class="header__top__right__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                            <div class="header__top__right__auth">
-                                <a href="./log/log.php"><i class="fa fa-user"></i> Connexion</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
         </div>
         <div class="container">
             <div class="row">
