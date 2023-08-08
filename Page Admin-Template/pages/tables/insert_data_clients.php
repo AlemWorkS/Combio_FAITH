@@ -1,13 +1,13 @@
 <?php
 // Assurez-vous d'avoir les informations de connexion correctes à votre base de données
 include('../../connexion.php');
-
 // Récupérez les données du nouvel élément depuis la requête POST
-
-$IDFOURNISSEUR = $_POST['IDFOURNISSEUR'];
-$IDPAYS = $_POST['IDPAYS'];
-$NOMFOURNISSEUR = $_POST['NOMFOURNISSEUR'];
-$PRENOMFOURNISSEUR = $_POST['PRENOMFOURNISSEUR'];
+$noclient = $_POST['noclient'];
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$ville = $_POST['ville'];
+$contact = $_POST['contact'];
+$id_parrain = $_POST['poids'];
 
 
 try {
@@ -15,20 +15,21 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Requête SQL pour insérer un nouvel élément dans la table "produits"
-    $sql = "INSERT INTO fournisseur
-            VALUES (:IDFOURNISSEUR, :IDPAYS, :NOMFOURNISSEUR, :PRENOMFOURNISSEUR)";
+    $sql = "INSERT INTO clients (noclient, nom, prenom, ville, contact,  description)
+            VALUES (:noclient, :nom, :prenom, :ville, :contact,  :description)";
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':IDFOURNISSEUR', $IDFOURNISSEUR);
-    $stmt->bindParam(':IDPAYS', $IDPAYS);
-    $stmt->bindParam(':NOMFOURNISSEUR', $NOMFOURNISSEUR);
-    $stmt->bindParam(':PRENOMFOURNISSEUR', $PRENOMFOURNISSEUR);
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':noclient', $noclient);
+$stmt->bindParam(':nom', $nom);
+$stmt->bindParam(':prenom', $prenom);
+$stmt->bindParam(':ville', $ville);
+$stmt->bindParam(':contact', $contact);
+
 
     $stmt->execute();
 } catch(PDOException $e) {
     die("Erreur lors de l'insertion de l'élément : " . $e->getMessage());
 }
-
 
 $conn = null;
 

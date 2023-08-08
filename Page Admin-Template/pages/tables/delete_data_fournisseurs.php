@@ -1,9 +1,6 @@
 <?php
 // Assurez-vous d'avoir les informations de connexion correctes à votre base de données
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "combio";
+include('../../connexion.php');
 
 // Récupérez l'ID de l'élément à supprimer depuis la requête POST
 $idfournisseur = $_POST['IDFOURNISSEUR'];

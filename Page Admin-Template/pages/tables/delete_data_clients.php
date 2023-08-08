@@ -3,17 +3,17 @@
 include('../../connexion.php');
 
 // Récupérez l'ID de l'élément à supprimer depuis la requête POST
-$codecateg = $_POST['codecateg'];
+$no_client = $_POST['no_client'];
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Requête SQL pour supprimer l'élément de la table "produits"
-    $sql = "DELETE FROM categories WHERE codecateg = :codecateg";
+    $sql = "DELETE FROM commande WHERE no_client = :no_client";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':codecateg', $codecateg);
+    $stmt->bindParam(':no_client', $no_client);
     $stmt->execute();
 } catch(PDOException $e) {
     die("Erreur lors de la suppression de l'élément : " . $e->getMessage());

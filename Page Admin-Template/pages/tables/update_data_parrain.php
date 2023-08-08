@@ -2,22 +2,28 @@
 // Assurez-vous d'avoir les informations de connexion correctes à votre base de données
 include('../../connexion.php');
 // Récupérez les données mises à jour depuis la requête POST
-$codecateg = $_POST['codecateg'];
-$libelle = $_POST['libelle'];
-$nomcatego = $_POST['nomcatego'];
+$id_parrain = $_POST['id_parrain'];
+$nom_parrain = $_POST['nom_parrain'];
+$prenom_parrain = $_POST['prenom_parrain'];
+
+
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Requête SQL pour mettre à jour l'élément dans la table "produits"
-    $sql = "UPDATE categories
-            SET codecateg = :codecateg, libelle = :libelle, nomcatego = :nomcatego WHERE codecateg = :codecateg";
+    $sql = "UPDATE client
+            SET nom_parrain = :nom_parrain, prenom_parrain = :prenom_parrain, id_parrain = :id_parrain, description = :description
+            WHERE id_parrain = :id_parrain";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':codecateg', $codecateg);
-    $stmt->bindParam(':libelle', $libelle);
-    $stmt->bindParam(':nomcatego', $nomcatego);
+    $stmt->bindParam(':nom_parrain', $nom_parrain);
+    $stmt->bindParam(':prenom_parrain', $prenom_parrain);
+
+    $stmt->bindParam(':id_parrain', $id_parrain);
+
+
 
     $stmt->execute();
 } catch(PDOException $e) {

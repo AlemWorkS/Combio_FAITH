@@ -1,7 +1,6 @@
 <?php
 // Connexion à la base de données (vous devrez remplacer les valeurs avec celles de votre propre base de données)
 include('../../connexion.php');
-
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -10,7 +9,7 @@ try {
 }
 
 // Requête SQL pour récupérer les données des clients
-$sql = "SELECT * FROM emballage";
+$sql = "SELECT * FROM clients";
 $result = $conn->query($sql);
 
 // Récupération des données sous forme de tableau associatif

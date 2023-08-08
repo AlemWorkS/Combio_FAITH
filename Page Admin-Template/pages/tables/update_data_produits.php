@@ -1,9 +1,6 @@
 <?php
 // Assurez-vous d'avoir les informations de connexion correctes à votre base de données
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "combio";
+include('../../connexion.php');
 
 // Récupérez les données mises à jour depuis la requête POST
 $refproduits = $_POST['refproduits'];

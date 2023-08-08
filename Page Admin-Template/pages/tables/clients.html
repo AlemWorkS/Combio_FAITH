@@ -27,39 +27,30 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="../samples/orders.php"><img src="../../img/logo.png" alt="logo" style ="height:100px ;display: flex;"/></a>
-        <a class="navbar-brand brand-logo-mini" href="../samples/orders.php"><img src="../../img/logo.png"  style ="object-fit:cover ; height:60px;"alt="logo"></a>
+        <a class="navbar-brand brand-logo-mini" href="../samples/orders.php"><img src="../../img/logo.png"  style ="object-fit:cover ; height:60px;  flex;"alt="logo"></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="fas fa-bars"></span>
         </button>
-        <ul class="navbar-nav">
-          <li class="nav-item nav-search d-none d-md-flex">
-            <div class="nav-link">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                 
-                </div>
-               
-              </div>
-            </div>
-          </li>
-        </ul>
+       
         <ul class="navbar-nav navbar-nav-right">
          
           
            
-          <a class="dropdown-item">
+          <a class="dropdown-item" href="#">
             <i class="fas fa-power-off text-primary"></i>
             Déconnexion
           </a>
-
+           
+          
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="fas fa-bars"></span>
         </button>
       </div>
-    </nav>  
+    </nav>     
+    
     <!-- partial -->
     <div class="container-fluid page-body-wrapper" style="overflow-x:scroll;">
       <!-- partial:../../partials/_settings-panel.html -->
@@ -237,20 +228,20 @@
         <ul class="nav">
           <li class="nav-item nav-profile">
             <div class="nav-link">
-             
+              
               <div class="profile-name">
                 <p class="name">
                   Bienvenue Administrateur
                 </p>
                
               </div>
+              
             </div>
           </li>
 
-           
            <!--Accès aux clients-->
-           <li class="nav-item">
-            <a class="nav-link" href="../tables/clients.html">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
               <i class="fas fa-user-friends menu-icon"></i>
               <span class="menu-title">Clients</span>
               <i class="menu-arrow"></i>
@@ -280,78 +271,58 @@
 
           <!--Les produits-->
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../tables/produits.html">
               <i class="fas fa-shopping-bag menu-icon"></i>
               <span class="menu-title">Produits</span>
-             
+              <i class="menu-arrow"></i>
             </a>
           </li>
+
+      
+          
+          
           
         </ul>
       </nav> 
-
-      <!-- table des produits -->
+      <!-- table des fournisseurs -->
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
             <h3 class="page-title">
-              Produits
+              Clients
             </h3>
+           
           </div>
           <div class="row grid-margin">
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-description">Listes de tous les produits</p>
+                  <p class="card-description">Liste de tous les clients</p>
                   <div id="js-grid"></div>
-                 
                 </div>
               </div>
-              
-            </div>
-            <div class="row grid-margin">
-              <div class="content-wrapper">
-                <div class="page-header">
-                  <h3 class="page-title">
-                    Emballage
-                  </h3>
-                </div>
-                <div class="col-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-description">Listes de tous les fournisseurs</p>
-                      <div id="js-emballage"></div>
-                    </div>
-                </div>
-              </div>
-            </div>
             </div>
           </div>
-          
         </div>
+       
       </div>
       <div class="row grid-margin">
-        <div class="content-wrapper">
-          <div class="page-header">
-            <h3 class="page-title">
-              Categories
-            </h3>
-         </div>
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <p class="card-description">Listes de toutes les catégories</p>
-                <div id="js-categ"></div>
-              </div>
+            <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">
+                Parrains
+                </h3>
             </div>
-         </div>
+            <div class="col-12">
+                <div class="card">
+                <div class="card-body">
+                    <p class="card-description">Liste de tous les parrains</p>
+                    <div id="js-parrain"></div>
+                </div>
+                </div>
+            </div>
+        </div>
       </div>
-      
-    
-    
-
-
-
       
       <!-- main-panel ends -->
     </div>
@@ -370,10 +341,8 @@
   <script src="../../js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="../../js/table_produits.js"></script>
-  <script src="../../js/table_categories.js"></script>
-  <script src="../../js/table_emballage.js"></script>
-
+  <script src="../../js/table_clients.js"></script>
+  <script src="../../js/table_parrain.js"></script>
   <!-- End custom js for this page-->
 </body>
 
